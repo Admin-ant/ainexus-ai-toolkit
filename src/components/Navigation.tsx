@@ -1,0 +1,115 @@
+import { Link } from "react-router-dom";
+import { Button } from "./ui/button";
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
+
+const Navigation = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <Link to="/" className="flex items-center space-x-2">
+            <div className="w-8 h-8 bg-gradient-to-br from-primary to-primary/80 rounded-lg"></div>
+            <span className="text-xl font-bold text-foreground">Ainexus Cloud</span>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
+            <Link to="/" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+              Home
+            </Link>
+            <Link to="/crm" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+              AI CRM
+            </Link>
+            <Link to="/telecom" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+              AI Telecom
+            </Link>
+            <Link to="/pricing" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+              Prijzen
+            </Link>
+            <Link to="/contact" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+              Contact
+            </Link>
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="hidden md:flex items-center space-x-4">
+            <Button variant="ghost" asChild>
+              <Link to="/contact">Inloggen</Link>
+            </Button>
+            <Button asChild className="bg-primary hover:bg-primary/90">
+              <Link to="/demo">Gratis Demo</Link>
+            </Button>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        {isOpen && (
+          <div className="md:hidden py-4 space-y-4">
+            <Link
+              to="/"
+              className="block text-sm font-medium text-muted-foreground hover:text-foreground"
+              onClick={() => setIsOpen(false)}
+            >
+              Home
+            </Link>
+            <Link
+              to="/crm"
+              className="block text-sm font-medium text-muted-foreground hover:text-foreground"
+              onClick={() => setIsOpen(false)}
+            >
+              AI CRM
+            </Link>
+            <Link
+              to="/telecom"
+              className="block text-sm font-medium text-muted-foreground hover:text-foreground"
+              onClick={() => setIsOpen(false)}
+            >
+              AI Telecom
+            </Link>
+            <Link
+              to="/pricing"
+              className="block text-sm font-medium text-muted-foreground hover:text-foreground"
+              onClick={() => setIsOpen(false)}
+            >
+              Prijzen
+            </Link>
+            <Link
+              to="/contact"
+              className="block text-sm font-medium text-muted-foreground hover:text-foreground"
+              onClick={() => setIsOpen(false)}
+            >
+              Contact
+            </Link>
+            <div className="flex flex-col space-y-2 pt-4">
+              <Button variant="ghost" asChild>
+                <Link to="/contact" onClick={() => setIsOpen(false)}>
+                  Inloggen
+                </Link>
+              </Button>
+              <Button asChild className="bg-primary hover:bg-primary/90">
+                <Link to="/demo" onClick={() => setIsOpen(false)}>
+                  Gratis Demo
+                </Link>
+              </Button>
+            </div>
+          </div>
+        )}
+      </div>
+    </nav>
+  );
+};
+
+export default Navigation;
