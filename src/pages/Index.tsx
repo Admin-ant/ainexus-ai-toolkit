@@ -5,6 +5,10 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Brain, MessageSquare, Phone, CheckCircle2, ArrowRight, Sparkles } from "lucide-react";
 import { Helmet } from "react-helmet";
+import heroImage from "@/assets/hero-image.jpg";
+import crmImage from "@/assets/crm-dashboard.jpg";
+import telecomImage from "@/assets/telecom-system.jpg";
+import aiNexusImage from "@/assets/ai-nexus-platform.jpg";
 
 const Index = () => {
   return (
@@ -21,29 +25,41 @@ const Index = () => {
         <Navigation />
         
         {/* Hero Section */}
-        <section className="pt-32 pb-20 px-4">
-          <div className="container mx-auto text-center max-w-4xl">
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
-              <Sparkles className="w-4 h-4 mr-2" />
-              AI-Gedreven Bedrijfsoplossingen
-            </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
-              Transformeer je bedrijf met AI
-            </h1>
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Ainexus Cloud levert geavanceerde AI-oplossingen voor CRM en telecom. Automatiseer processen, 
-              analyseer gesprekken en verhoog klanttevredenheid.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" asChild className="bg-primary hover:bg-primary/90">
-                <Link to="/demo">
-                  Gratis Demo Aanvragen
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-              <Button size="lg" variant="outline" asChild>
-                <Link to="/pricing">Bekijk Prijzen</Link>
-              </Button>
+        <section className="pt-32 pb-20 px-4 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent" />
+          <div className="container mx-auto relative z-10">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="text-center lg:text-left">
+                <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
+                  <Sparkles className="w-4 h-4 mr-2" />
+                  AI-Gedreven Bedrijfsoplossingen
+                </div>
+                <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+                  Transformeer je bedrijf met AI
+                </h1>
+                <p className="text-xl text-muted-foreground mb-8">
+                  Ainexus Cloud levert geavanceerde AI-oplossingen voor CRM en telecom. Automatiseer processen, 
+                  analyseer gesprekken en verhoog klanttevredenheid.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                  <Button size="lg" asChild className="bg-primary hover:bg-primary/90">
+                    <Link to="/demo">
+                      Gratis Demo Aanvragen
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                  <Button size="lg" variant="outline" asChild>
+                    <Link to="/pricing">Bekijk Prijzen</Link>
+                  </Button>
+                </div>
+              </div>
+              <div className="relative">
+                <img 
+                  src={heroImage} 
+                  alt="AI-gedreven bedrijfsoplossingen in actie" 
+                  className="rounded-2xl shadow-2xl w-full h-auto"
+                />
+              </div>
             </div>
           </div>
         </section>
@@ -60,7 +76,14 @@ const Index = () => {
             
             <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {/* CRM Card */}
-              <Card className="border-2 hover:border-primary transition-all duration-300 hover:shadow-lg">
+              <Card className="border-2 hover:border-primary transition-all duration-300 hover:shadow-lg overflow-hidden">
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={crmImage} 
+                    alt="AI CRM Software Dashboard" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
                 <CardHeader>
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
                     <MessageSquare className="w-6 h-6 text-primary" />
@@ -92,7 +115,14 @@ const Index = () => {
               </Card>
 
               {/* Telecom Card */}
-              <Card className="border-2 hover:border-primary transition-all duration-300 hover:shadow-lg">
+              <Card className="border-2 hover:border-primary transition-all duration-300 hover:shadow-lg overflow-hidden">
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={telecomImage} 
+                    alt="AI Telecom Systeem" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
                 <CardHeader>
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
                     <Phone className="w-6 h-6 text-primary" />
@@ -124,7 +154,14 @@ const Index = () => {
               </Card>
 
               {/* AI Nexus Card */}
-              <Card className="border-2 hover:border-primary transition-all duration-300 hover:shadow-lg">
+              <Card className="border-2 hover:border-primary transition-all duration-300 hover:shadow-lg overflow-hidden">
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={aiNexusImage} 
+                    alt="AI Nexus Platform" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
                 <CardHeader>
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
                     <Brain className="w-6 h-6 text-primary" />
@@ -152,6 +189,7 @@ const Index = () => {
                   <Button asChild variant="outline" className="w-full">
                     <a href="https://ainexus.nl" target="_blank" rel="noopener noreferrer">
                       Bezoek Ainexus.nl
+                      <ArrowRight className="ml-2 h-4 w-4" />
                     </a>
                   </Button>
                 </CardContent>
