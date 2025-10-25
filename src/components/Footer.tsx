@@ -31,6 +31,11 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
+                <a href="https://ainexus.nl" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  AI Nexus Platform
+                </a>
+              </li>
+              <li>
                 <Link to="/pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   Prijzen
                 </Link>
