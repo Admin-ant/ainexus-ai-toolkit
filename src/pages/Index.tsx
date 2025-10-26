@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { Brain, MessageSquare, Phone, CheckCircle2, ArrowRight, Sparkles } from "lucide-react";
+import { Brain, MessageSquare, Phone, CheckCircle2, ArrowRight, Sparkles, Calendar, GraduationCap, Bot, Repeat } from "lucide-react";
 import { Helmet } from "react-helmet";
 import heroImage from "@/assets/hero-image.jpg";
 import crmImage from "@/assets/crm-dashboard.jpg";
@@ -242,6 +242,120 @@ const Index = () => {
           </div>
         </section>
 
+        {/* Stappenplan Section */}
+        <section className="py-20 px-4 bg-gradient-to-b from-muted/20 to-background">
+          <div className="container mx-auto max-w-6xl">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">In 4 Stappen Aan De Slag</h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Van kennismaking tot volledige AI-implementatie
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {/* Step 1 */}
+              <Card className="relative border-2 hover:border-primary transition-all duration-300 hover:shadow-xl group">
+                <div className="absolute -top-4 -left-4 w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-lg shadow-lg">
+                  1
+                </div>
+                <CardHeader className="pt-8">
+                  <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                    <Calendar className="w-8 h-8 text-primary" />
+                  </div>
+                  <CardTitle className="text-center text-xl">Quick Scan</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center space-y-3">
+                  <div className="space-y-2">
+                    <p className="font-semibold text-lg">30 min, gratis</p>
+                    <p className="text-sm text-muted-foreground">via Zoom – geen verplichtingen</p>
+                  </div>
+                  <Button asChild className="w-full mt-4">
+                    <Link to="/demo">
+                      Plan Nu
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+
+              {/* Step 2 */}
+              <Card className="relative border-2 hover:border-primary transition-all duration-300 hover:shadow-xl group">
+                <div className="absolute -top-4 -left-4 w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-lg shadow-lg">
+                  2
+                </div>
+                <CardHeader className="pt-8">
+                  <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                    <GraduationCap className="w-8 h-8 text-primary" />
+                  </div>
+                  <CardTitle className="text-center text-xl">AI Workshop</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center space-y-3">
+                  <div className="space-y-2">
+                    <p className="font-semibold text-lg">2 uur, €299</p>
+                    <p className="text-sm text-muted-foreground">Leer AI zelf gebruiken</p>
+                  </div>
+                  <Button asChild variant="outline" className="w-full mt-4">
+                    <Link to="/contact">
+                      Meer Info
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+
+              {/* Step 3 */}
+              <Card className="relative border-2 hover:border-primary transition-all duration-300 hover:shadow-xl group">
+                <div className="absolute -top-4 -left-4 w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-lg shadow-lg">
+                  3
+                </div>
+                <CardHeader className="pt-8">
+                  <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                    <Bot className="w-8 h-8 text-primary" />
+                  </div>
+                  <CardTitle className="text-center text-xl">Chatbot / Tool</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center space-y-3">
+                  <div className="space-y-2">
+                    <p className="font-semibold text-lg">Binnen 1 dag live</p>
+                    <p className="text-sm text-muted-foreground">Automatiseer direct</p>
+                  </div>
+                  <Button asChild variant="outline" className="w-full mt-4">
+                    <Link to="/pricing">
+                      Bekijk Opties
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+
+              {/* Step 4 */}
+              <Card className="relative border-2 hover:border-primary transition-all duration-300 hover:shadow-xl group">
+                <div className="absolute -top-4 -left-4 w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-lg shadow-lg">
+                  4
+                </div>
+                <CardHeader className="pt-8">
+                  <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                    <Repeat className="w-8 h-8 text-primary" />
+                  </div>
+                  <CardTitle className="text-center text-xl">AI Abonnement</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center space-y-3">
+                  <div className="space-y-2">
+                    <p className="font-semibold text-lg">Vanaf €199/mnd</p>
+                    <p className="text-sm text-muted-foreground">Doorlopende AI-ondersteuning</p>
+                  </div>
+                  <Button asChild variant="outline" className="w-full mt-4">
+                    <Link to="/pricing">
+                      Abonnementen
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
         {/* CTA Section */}
         <section className="py-20 px-4 bg-primary text-primary-foreground">
           <div className="container mx-auto text-center max-w-3xl">
@@ -259,6 +373,20 @@ const Index = () => {
             </Button>
           </div>
         </section>
+
+        {/* Floating Contact Button */}
+        <div className="fixed bottom-8 right-8 z-50 group">
+          <Button 
+            size="lg" 
+            asChild 
+            className="rounded-full shadow-2xl hover:shadow-primary/50 transition-all duration-300 hover:scale-110"
+          >
+            <Link to="/demo" className="flex items-center gap-2">
+              <Calendar className="w-5 h-5" />
+              <span className="font-semibold">Plan Gratis Scan</span>
+            </Link>
+          </Button>
+        </div>
 
         <Footer />
       </div>
