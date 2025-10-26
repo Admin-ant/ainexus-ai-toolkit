@@ -5,6 +5,9 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Calendar, CheckCircle2, Clock, Rocket, Users, Zap } from "lucide-react";
+import heroImage from "@/assets/quick-scan-hero.jpg";
+import workshopImage from "@/assets/ai-workshop.jpg";
+import chatbotImage from "@/assets/ai-chatbot.jpg";
 
 const QuickScan = () => {
   return (
@@ -17,52 +20,68 @@ const QuickScan = () => {
       <Navigation />
       
       <main>
-        {/* Hero Section */}
-        <section className="pt-32 pb-20 px-4">
-          <div className="container mx-auto max-w-6xl">
+        {/* Hero Section with Background Image */}
+        <section className="relative pt-32 pb-20 px-4 overflow-hidden">
+          {/* Background Image with Overlay */}
+          <div className="absolute inset-0 z-0">
+            <img 
+              src={heroImage} 
+              alt="AI Quick Scan Video Call" 
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/90 to-background/80" />
+          </div>
+          
+          <div className="container mx-auto max-w-6xl relative z-10">
             <div className="text-center mb-16 animate-fade-in">
-              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-6">
+              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-6 backdrop-blur-sm">
                 <Rocket className="w-4 h-4" />
                 <span className="text-sm font-medium">100% Gratis & Zonder Verplichtingen</span>
               </div>
-              <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+              <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent drop-shadow-lg">
                 Start met AI in 4 Stappen
               </h1>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+              <p className="text-xl text-foreground max-w-3xl mx-auto mb-8 drop-shadow-md">
                 In slechts 30 minuten ontdek je de mogelijkheden van AI voor jouw bedrijf. 
                 Geen technisch jargon, alleen concrete oplossingen.
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
-                <Button size="lg" asChild className="text-lg px-8">
+                <Button size="lg" asChild className="text-lg px-8 shadow-lg hover:shadow-xl transition-shadow">
                   <Link to="/demo">Plan Gratis Quick Scan</Link>
                 </Button>
-                <Button size="lg" variant="outline" asChild className="text-lg px-8">
+                <Button size="lg" variant="outline" asChild className="text-lg px-8 backdrop-blur-sm bg-background/50 hover:bg-background/70">
                   <Link to="/contact">Stel een Vraag</Link>
                 </Button>
               </div>
             </div>
 
             {/* Benefits Cards */}
-            <div className="grid md:grid-cols-3 gap-6 mb-20">
-              <Card className="border-primary/20 hover:border-primary/40 transition-colors">
+            <div className="grid md:grid-cols-3 gap-6">
+              <Card className="border-primary/20 hover:border-primary/40 transition-all hover:shadow-lg backdrop-blur-sm bg-card/90">
                 <CardHeader>
-                  <Clock className="w-10 h-10 text-primary mb-2" />
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                    <Clock className="w-6 h-6 text-primary" />
+                  </div>
                   <CardTitle>30 Minuten</CardTitle>
                   <CardDescription>Kort maar krachtig gesprek via Zoom</CardDescription>
                 </CardHeader>
               </Card>
               
-              <Card className="border-primary/20 hover:border-primary/40 transition-colors">
+              <Card className="border-primary/20 hover:border-primary/40 transition-all hover:shadow-lg backdrop-blur-sm bg-card/90">
                 <CardHeader>
-                  <Users className="w-10 h-10 text-primary mb-2" />
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                    <Users className="w-6 h-6 text-primary" />
+                  </div>
                   <CardTitle>Persoonlijk Advies</CardTitle>
                   <CardDescription>Afgestemd op jouw specifieke situatie</CardDescription>
                 </CardHeader>
               </Card>
               
-              <Card className="border-primary/20 hover:border-primary/40 transition-colors">
+              <Card className="border-primary/20 hover:border-primary/40 transition-all hover:shadow-lg backdrop-blur-sm bg-card/90">
                 <CardHeader>
-                  <Zap className="w-10 h-10 text-primary mb-2" />
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                    <Zap className="w-6 h-6 text-primary" />
+                  </div>
                   <CardTitle>Direct Toepasbaar</CardTitle>
                   <CardDescription>Concrete vervolgstappen na het gesprek</CardDescription>
                 </CardHeader>
@@ -71,15 +90,103 @@ const QuickScan = () => {
           </div>
         </section>
 
+        {/* Workshop Visual Section */}
+        <section className="py-20 px-4">
+          <div className="container mx-auto max-w-6xl">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="order-2 lg:order-1">
+                <h2 className="text-4xl font-bold mb-6">Leer AI Zelf Gebruiken</h2>
+                <p className="text-lg text-muted-foreground mb-6">
+                  Na de Quick Scan kun je meteen aan de slag met onze praktische AI Workshop. 
+                  Geen theorie, maar hands-on leren met jouw eigen bedrijfscases.
+                </p>
+                <ul className="space-y-4 mb-8">
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="w-6 h-6 text-primary shrink-0 mt-1" />
+                    <span>Direct toepasbare AI-tools voor jouw team</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="w-6 h-6 text-primary shrink-0 mt-1" />
+                    <span>Praktijkvoorbeelden uit jouw branche</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="w-6 h-6 text-primary shrink-0 mt-1" />
+                    <span>Persoonlijke begeleiding en Q&A</span>
+                  </li>
+                </ul>
+                <Button size="lg" asChild>
+                  <Link to="/contact">Vraag Workshop Info</Link>
+                </Button>
+              </div>
+              <div className="order-1 lg:order-2">
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                  <img 
+                    src={workshopImage} 
+                    alt="AI Workshop met professionals"
+                    className="w-full h-auto"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Chatbot Visual Section */}
+        <section className="py-20 px-4 bg-accent/30">
+          <div className="container mx-auto max-w-6xl">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                  <img 
+                    src={chatbotImage} 
+                    alt="AI Chatbot Interface"
+                    className="w-full h-auto"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent" />
+                </div>
+              </div>
+              <div>
+                <h2 className="text-4xl font-bold mb-6">Jouw Custom AI-Tool</h2>
+                <p className="text-lg text-muted-foreground mb-6">
+                  We bouwen een op maat gemaakte AI-chatbot of tool specifiek voor jouw bedrijfsprocessen. 
+                  Binnen één dag operationeel en direct inzetbaar.
+                </p>
+                <ul className="space-y-4 mb-8">
+                  <li className="flex items-start gap-3">
+                    <Zap className="w-6 h-6 text-primary shrink-0 mt-1" />
+                    <span>Volledig geïntegreerd met jouw systemen</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Zap className="w-6 h-6 text-primary shrink-0 mt-1" />
+                    <span>24/7 beschikbaar voor jouw klanten en team</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Zap className="w-6 h-6 text-primary shrink-0 mt-1" />
+                    <span>Continu leren en verbeteren</span>
+                  </li>
+                </ul>
+                <Button size="lg" asChild>
+                  <Link to="/contact">Vraag Offerte Aan</Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* 4 Steps Process */}
-        <section className="py-20 bg-accent/30">
+        <section className="py-20">
           <div className="container mx-auto max-w-6xl px-4">
-            <h2 className="text-4xl font-bold text-center mb-16">Jouw AI Traject</h2>
+            <h2 className="text-4xl font-bold text-center mb-4">Jouw AI Traject</h2>
+            <p className="text-xl text-muted-foreground text-center mb-16 max-w-2xl mx-auto">
+              Van Quick Scan tot volledig AI-gedreven organisatie in 4 duidelijke stappen
+            </p>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {/* Step 1 */}
-              <Card className="relative overflow-hidden group hover:shadow-lg transition-shadow">
+              <Card className="relative overflow-hidden group hover:shadow-xl transition-all hover:-translate-y-1">
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-primary/60" />
+                <div className="absolute top-0 right-0 w-20 h-20 bg-primary/5 rounded-bl-full" />
                 <CardHeader>
                   <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xl font-bold mb-4">
                     1
@@ -108,8 +215,9 @@ const QuickScan = () => {
               </Card>
 
               {/* Step 2 */}
-              <Card className="relative overflow-hidden group hover:shadow-lg transition-shadow">
+              <Card className="relative overflow-hidden group hover:shadow-xl transition-all hover:-translate-y-1">
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-primary/60" />
+                <div className="absolute top-0 right-0 w-20 h-20 bg-primary/5 rounded-bl-full" />
                 <CardHeader>
                   <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xl font-bold mb-4">
                     2
@@ -137,8 +245,9 @@ const QuickScan = () => {
               </Card>
 
               {/* Step 3 */}
-              <Card className="relative overflow-hidden group hover:shadow-lg transition-shadow">
+              <Card className="relative overflow-hidden group hover:shadow-xl transition-all hover:-translate-y-1">
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-primary/60" />
+                <div className="absolute top-0 right-0 w-20 h-20 bg-primary/5 rounded-bl-full" />
                 <CardHeader>
                   <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xl font-bold mb-4">
                     3
@@ -163,8 +272,9 @@ const QuickScan = () => {
               </Card>
 
               {/* Step 4 */}
-              <Card className="relative overflow-hidden group hover:shadow-lg transition-shadow">
+              <Card className="relative overflow-hidden group hover:shadow-xl transition-all hover:-translate-y-1">
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-primary/60" />
+                <div className="absolute top-0 right-0 w-20 h-20 bg-primary/5 rounded-bl-full" />
                 <CardHeader>
                   <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xl font-bold mb-4">
                     4
