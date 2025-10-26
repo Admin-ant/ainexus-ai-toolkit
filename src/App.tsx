@@ -9,6 +9,7 @@ import Telecom from "./pages/Telecom";
 import Pricing from "./pages/Pricing";
 import Contact from "./pages/Contact";
 import Demo from "./pages/Demo";
+import QuickScan from "./pages/QuickScan";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/demo" element={<Demo />} />
+          <Route path="/quick-scan" element={<QuickScan />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
