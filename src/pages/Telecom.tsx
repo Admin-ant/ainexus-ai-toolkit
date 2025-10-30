@@ -3,8 +3,10 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { Phone, BarChart3, MessageCircle, Shield, CheckCircle2, ArrowRight } from "lucide-react";
+import { Phone, BarChart3, MessageCircle, Shield, CheckCircle2, ArrowRight, ExternalLink, Sparkles } from "lucide-react";
 import { Helmet } from "react-helmet";
+import telecomSystem from "@/assets/telecom-system.jpg";
+import aiNexusPlatform from "@/assets/ai-nexus-platform.jpg";
 
 const Telecom = () => {
   return (
@@ -21,164 +23,175 @@ const Telecom = () => {
         <Navigation />
         
         {/* Hero Section */}
-        <section className="pt-32 pb-20 px-4">
-          <div className="container mx-auto max-w-6xl">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
-                  <Phone className="w-4 h-4 mr-2" />
-                  AI Telecom Platform
-                </div>
-                <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                  Intelligente telefonie met AI-gespreksanalyse
-                </h1>
-                <p className="text-xl text-muted-foreground mb-8">
-                  Ainexus CloudAI Telecom analyseert elk gesprek in real-time, identificeert kansen 
-                  en verbetert automatisch je klantenservice met geavanceerde AI-technologie.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Button size="lg" asChild className="bg-primary hover:bg-primary/90">
-                    <Link to="/demo">
-                      Vraag Demo Aan
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                  <Button size="lg" variant="outline" asChild>
-                    <Link to="/pricing">Bekijk Prijzen</Link>
-                  </Button>
-                </div>
+        <section className="relative pt-32 pb-20 px-4 overflow-hidden">
+          <div className="absolute inset-0 z-0">
+            <img 
+              src={telecomSystem} 
+              alt="AI Nexus Telecom Platform" 
+              className="w-full h-full object-cover opacity-20"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/90 to-background"></div>
+          </div>
+          
+          <div className="container mx-auto max-w-6xl relative z-10">
+            <div className="text-center max-w-4xl mx-auto">
+              <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
+                <Sparkles className="w-4 h-4 mr-2" />
+                Powered by AI Nexus
               </div>
-              <div className="relative">
-                <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 p-8 flex items-center justify-center">
-                  <Phone className="w-48 h-48 text-primary" />
-                </div>
+              <h1 className="text-4xl md:text-6xl font-bold mb-6">
+                AI Nexus Telecom
+              </h1>
+              <p className="text-xl md:text-2xl text-muted-foreground mb-8">
+                Slimme telefonie-oplossingen met geavanceerde AI-technologie voor bedrijven die voorop willen lopen
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button size="lg" asChild className="bg-primary hover:bg-primary/90">
+                  <a href="https://ainexustelecom.nl/" target="_blank" rel="noopener noreferrer">
+                    Bezoek AI Nexus Telecom
+                    <ExternalLink className="ml-2 h-4 w-4" />
+                  </a>
+                </Button>
+                <Button size="lg" variant="outline" asChild>
+                  <Link to="/demo">Gratis Demo Aanvragen</Link>
+                </Button>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Features Section */}
+        {/* Integration Section */}
+        <section className="py-20 px-4">
+          <div className="container mx-auto max-w-6xl">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                  De kracht van AI Nexus × Telecom
+                </h2>
+                <p className="text-lg text-muted-foreground mb-6">
+                  AI Nexus Telecom combineert de kracht van ons AI-platform met geavanceerde telecom-infrastructuur. 
+                  Profiteer van enterprise-grade telefonie aangedreven door cutting-edge AI-technologie.
+                </p>
+                <div className="space-y-4 mb-8">
+                  <div className="flex items-start">
+                    <CheckCircle2 className="w-6 h-6 text-primary mr-3 flex-shrink-0 mt-0.5" />
+                    <div>
+                      <h3 className="font-semibold mb-1">AI-gedreven gespreksanalyse</h3>
+                      <p className="text-sm text-muted-foreground">Real-time inzichten en sentiment detection</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start">
+                    <CheckCircle2 className="w-6 h-6 text-primary mr-3 flex-shrink-0 mt-0.5" />
+                    <div>
+                      <h3 className="font-semibold mb-1">Intelligente IVR & Routing</h3>
+                      <p className="text-sm text-muted-foreground">Natuurlijke spraakherkenning en slimme doorverbinding</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start">
+                    <CheckCircle2 className="w-6 h-6 text-primary mr-3 flex-shrink-0 mt-0.5" />
+                    <div>
+                      <h3 className="font-semibold mb-1">Wereldwijde infrastructuur</h3>
+                      <p className="text-sm text-muted-foreground">180+ landen, 99.999% uptime, 24/7 support</p>
+                    </div>
+                  </div>
+                </div>
+                <Button size="lg" asChild>
+                  <a href="https://ainexustelecom.nl/waarom-wij" target="_blank" rel="noopener noreferrer">
+                    Waarom AI Nexus Telecom?
+                    <ExternalLink className="ml-2 h-4 w-4" />
+                  </a>
+                </Button>
+              </div>
+              <div className="relative">
+                <img 
+                  src={aiNexusPlatform} 
+                  alt="AI Nexus Platform in actie" 
+                  className="rounded-2xl shadow-2xl"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Services Overview */}
         <section className="py-20 px-4 bg-muted/30">
           <div className="container mx-auto max-w-6xl">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Geavanceerde Telecom-functies</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Complete Telecom-oplossingen</h2>
               <p className="text-lg text-muted-foreground">
-                AI-gedreven oplossingen voor moderne telefonie
+                Van AI spraakagenten tot wereldwijde connectiviteit
               </p>
             </div>
             
-            <div className="grid md:grid-cols-2 gap-8">
-              <Card>
-                <CardHeader>
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                    <BarChart3 className="w-6 h-6 text-primary" />
-                  </div>
-                  <CardTitle>Real-time Gespreksanalyse</CardTitle>
-                  <CardDescription>
-                    AI luistert mee en geeft direct inzichten tijdens gesprekken
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                    <li className="flex items-start">
-                      <CheckCircle2 className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">Automatische sentimentanalyse van klanten</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle2 className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">Identificeer sales-kansen tijdens gesprekken</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle2 className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">Live suggesties voor agents</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card>
+            <div className="grid md:grid-cols-3 gap-6">
+              <Card className="hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
                     <MessageCircle className="w-6 h-6 text-primary" />
                   </div>
-                  <CardTitle>Slimme IVR-systemen</CardTitle>
+                  <CardTitle>AI Spraakagenten</CardTitle>
                   <CardDescription>
-                    AI-gestuurde interactieve voice response voor betere routing
+                    Natuurlijke gesprekken met AI-technologie
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <ul className="space-y-2">
-                    <li className="flex items-start">
-                      <CheckCircle2 className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">Natuurlijke taalverwerking voor spraakherkenning</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle2 className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">Intelligente doorverbinding naar juiste afdeling</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle2 className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">24/7 geautomatiseerde eerste opvang</span>
-                    </li>
-                  </ul>
+                  <Button variant="ghost" className="w-full justify-between" asChild>
+                    <a href="https://ainexustelecom.nl/diensten" target="_blank" rel="noopener noreferrer">
+                      Meer informatie
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+                  </Button>
                 </CardContent>
               </Card>
 
-              <Card>
+              <Card className="hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                    <Shield className="w-6 h-6 text-primary" />
+                    <BarChart3 className="w-6 h-6 text-primary" />
                   </div>
-                  <CardTitle>Kwaliteitsmonitoring</CardTitle>
+                  <CardTitle>Gespreksanalyse</CardTitle>
                   <CardDescription>
-                    Automatische evaluatie van gesprekskwaliteit
+                    Real-time inzichten en AI-monitoring
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <ul className="space-y-2">
-                    <li className="flex items-start">
-                      <CheckCircle2 className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">AI-scoring van agent prestaties</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle2 className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">Compliance monitoring en rapportage</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle2 className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">Gedetailleerde coachingsuggesties</span>
-                    </li>
-                  </ul>
+                  <Button variant="ghost" className="w-full justify-between" asChild>
+                    <a href="https://ainexustelecom.nl/oplossingen" target="_blank" rel="noopener noreferrer">
+                      Bekijk oplossingen
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+                  </Button>
                 </CardContent>
               </Card>
 
-              <Card>
+              <Card className="hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
                     <Phone className="w-6 h-6 text-primary" />
                   </div>
-                  <CardTitle>Geavanceerde Telefonie</CardTitle>
+                  <CardTitle>Wereldwijde Nummers</CardTitle>
                   <CardDescription>
-                    Complete cloud telefonie-oplossing
+                    Lokale aanwezigheid in 180+ landen
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <ul className="space-y-2">
-                    <li className="flex items-start">
-                      <CheckCircle2 className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">Call recording met automatische transcriptie</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle2 className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">Multi-channel ondersteuning (voice, video, chat)</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle2 className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">Internationale nummers in 100+ landen</span>
-                    </li>
-                  </ul>
+                  <Button variant="ghost" className="w-full justify-between" asChild>
+                    <a href="https://ainexustelecom.nl/diensten" target="_blank" rel="noopener noreferrer">
+                      Ontdek diensten
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+                  </Button>
                 </CardContent>
               </Card>
+            </div>
+
+            <div className="text-center mt-12">
+              <Button size="lg" variant="outline" asChild>
+                <a href="https://ainexustelecom.nl/diensten" target="_blank" rel="noopener noreferrer">
+                  Bekijk Alle Diensten
+                  <ExternalLink className="ml-2 h-4 w-4" />
+                </a>
+              </Button>
             </div>
           </div>
         </section>
@@ -187,42 +200,57 @@ const Telecom = () => {
         <section className="py-20 px-4">
           <div className="container mx-auto max-w-6xl">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Perfect voor elk contact center</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Use Cases & Toepassingen</h2>
               <p className="text-lg text-muted-foreground">
-                Van kleine teams tot enterprise callcenters
+                Van customer support tot sales - AI Nexus Telecom past zich aan uw behoeften aan
               </p>
             </div>
             
             <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                  <Phone className="w-8 h-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Customer Support</h3>
-                <p className="text-muted-foreground">
-                  Verhoog first-call-resolution met AI-assistentie en betere routing
-                </p>
-              </div>
+              <Card className="text-center hover:shadow-lg transition-shadow">
+                <CardHeader>
+                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                    <Phone className="w-8 h-8 text-primary" />
+                  </div>
+                  <CardTitle>Klantenservice</CardTitle>
+                  <CardDescription>
+                    Verhoog first-call-resolution met AI
+                  </CardDescription>
+                </CardHeader>
+              </Card>
               
-              <div className="text-center">
-                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                  <BarChart3 className="w-8 h-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Sales Teams</h3>
-                <p className="text-muted-foreground">
-                  Identificeer upsell kansen en verbeter closing rates
-                </p>
-              </div>
+              <Card className="text-center hover:shadow-lg transition-shadow">
+                <CardHeader>
+                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                    <BarChart3 className="w-8 h-8 text-primary" />
+                  </div>
+                  <CardTitle>Sales & Outbound</CardTitle>
+                  <CardDescription>
+                    Identificeer kansen en verbeter conversie
+                  </CardDescription>
+                </CardHeader>
+              </Card>
               
-              <div className="text-center">
-                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                  <Shield className="w-8 h-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Quality Management</h3>
-                <p className="text-muted-foreground">
-                  Automatiseer kwaliteitscontrole en train teams effectiever
-                </p>
-              </div>
+              <Card className="text-center hover:shadow-lg transition-shadow">
+                <CardHeader>
+                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                    <Shield className="w-8 h-8 text-primary" />
+                  </div>
+                  <CardTitle>Quality & Training</CardTitle>
+                  <CardDescription>
+                    Automatische monitoring en coaching
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            </div>
+
+            <div className="text-center mt-12">
+              <Button size="lg" variant="outline" asChild>
+                <a href="https://ainexustelecom.nl/use-cases" target="_blank" rel="noopener noreferrer">
+                  Bekijk Alle Use Cases
+                  <ExternalLink className="ml-2 h-4 w-4" />
+                </a>
+              </Button>
             </div>
           </div>
         </section>
@@ -231,36 +259,53 @@ const Telecom = () => {
         <section className="py-20 px-4 bg-muted/30">
           <div className="container mx-auto max-w-6xl">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Meetbare impact</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Betrouwbaar & Schaalbaar</h2>
               <p className="text-lg text-muted-foreground">
-                Resultaten die onze klanten behalen
+                Enterprise-grade infrastructuur die meegroeit met uw organisatie
               </p>
             </div>
             
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-4 gap-8">
               <div className="text-center">
-                <div className="text-4xl font-bold text-primary mb-2">-35%</div>
-                <p className="text-lg font-semibold mb-2">Kortere gesprekstijd</p>
-                <p className="text-muted-foreground">
-                  Door efficiëntere routing en AI-assistentie
+                <div className="text-4xl font-bold text-primary mb-2">99.999%</div>
+                <p className="text-lg font-semibold mb-2">Uptime</p>
+                <p className="text-sm text-muted-foreground">
+                  Betrouwbare infrastructuur
                 </p>
               </div>
               
               <div className="text-center">
-                <div className="text-4xl font-bold text-primary mb-2">+50%</div>
-                <p className="text-lg font-semibold mb-2">Meer sales-kansen</p>
-                <p className="text-muted-foreground">
-                  Geïdentificeerd door AI tijdens gesprekken
+                <div className="text-4xl font-bold text-primary mb-2">180+</div>
+                <p className="text-lg font-semibold mb-2">Landen</p>
+                <p className="text-sm text-muted-foreground">
+                  Wereldwijde dekking
                 </p>
               </div>
               
               <div className="text-center">
-                <div className="text-4xl font-bold text-primary mb-2">90%</div>
-                <p className="text-lg font-semibold mb-2">Agent tevredenheid</p>
-                <p className="text-muted-foreground">
-                  Dankzij betere tools en real-time ondersteuning
+                <div className="text-4xl font-bold text-primary mb-2">24/7</div>
+                <p className="text-lg font-semibold mb-2">Support</p>
+                <p className="text-sm text-muted-foreground">
+                  Altijd beschikbaar
                 </p>
               </div>
+
+              <div className="text-center">
+                <div className="text-4xl font-bold text-primary mb-2">AI</div>
+                <p className="text-lg font-semibold mb-2">Gedreven</p>
+                <p className="text-sm text-muted-foreground">
+                  Slimme technologie
+                </p>
+              </div>
+            </div>
+
+            <div className="text-center mt-12">
+              <Button size="lg" asChild>
+                <a href="https://ainexustelecom.nl/prijzen" target="_blank" rel="noopener noreferrer">
+                  Bekijk Prijzen & Pakketten
+                  <ExternalLink className="ml-2 h-4 w-4" />
+                </a>
+              </Button>
             </div>
           </div>
         </section>
@@ -269,22 +314,28 @@ const Telecom = () => {
         <section className="py-20 px-4 bg-primary text-primary-foreground">
           <div className="container mx-auto text-center max-w-3xl">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Transformeer je telefonie met AI
+              Klaar om te starten met AI Nexus Telecom?
             </h2>
             <p className="text-lg mb-8 opacity-90">
-              Ontdek hoe Ainexus Telecom je contact center naar een hoger niveau tilt
+              Ontdek alle mogelijkheden of plan een persoonlijke demo
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" variant="secondary" asChild>
+                <a href="https://ainexustelecom.nl/contact" target="_blank" rel="noopener noreferrer">
+                  Plan Gratis Consult
+                  <ExternalLink className="ml-2 h-4 w-4" />
+                </a>
+              </Button>
+              <Button size="lg" variant="outline" className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10" asChild>
                 <Link to="/demo">
-                  Gratis Demo Aanvragen
+                  Vraag Demo Aan
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-              <Button size="lg" variant="outline" className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10" asChild>
-                <Link to="/contact">Neem Contact Op</Link>
-              </Button>
             </div>
+            <p className="mt-8 text-sm opacity-75">
+              Meer informatie? Bezoek <a href="https://ainexustelecom.nl" target="_blank" rel="noopener noreferrer" className="underline font-semibold hover:opacity-100 transition-opacity">ainexustelecom.nl</a>
+            </p>
           </div>
         </section>
 
