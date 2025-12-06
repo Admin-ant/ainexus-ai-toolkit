@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import CRM from "./pages/CRM";
 import Telecom from "./pages/Telecom";
+import AI from "./pages/AI";
+import AIWebsites from "./pages/AIWebsites";
 import Pricing from "./pages/Pricing";
 import Contact from "./pages/Contact";
 import Demo from "./pages/Demo";
@@ -24,6 +26,8 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/crm" element={<CRM />} />
           <Route path="/telecom" element={<Telecom />} />
+          <Route path="/ai" element={<AI />} />
+          <Route path="/ai-websites" element={<AIWebsites />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/demo" element={<Demo />} />

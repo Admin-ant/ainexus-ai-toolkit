@@ -21,6 +21,16 @@ const Footer = () => {
             <h3 className="font-semibold mb-4">Producten</h3>
             <ul className="space-y-2">
               <li>
+                <Link to="/ai" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  AI Oplossingen
+                </Link>
+              </li>
+              <li>
+                <Link to="/ai-websites" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  AI Websites
+                </Link>
+              </li>
+              <li>
                 <Link to="/crm" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   AI CRM Software
                 </Link>
@@ -29,11 +39,6 @@ const Footer = () => {
                 <Link to="/telecom" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   AI Telecom
                 </Link>
-              </li>
-              <li>
-                <a href="https://ainexus.nl" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                  AI Nexus Platform
-                </a>
               </li>
               <li>
                 <Link to="/pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors">

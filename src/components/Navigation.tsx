@@ -17,9 +17,15 @@ const Navigation = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             <Link to="/" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               Home
+            </Link>
+            <Link to="/ai" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+              AI
+            </Link>
+            <Link to="/ai-websites" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+              AI Websites
             </Link>
             <Link to="/crm" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               AI CRM
@@ -64,6 +70,20 @@ const Navigation = () => {
               onClick={() => setIsOpen(false)}
             >
               Home
+            </Link>
+            <Link
+              to="/ai"
+              className="block text-sm font-medium text-muted-foreground hover:text-foreground"
+              onClick={() => setIsOpen(false)}
+            >
+              AI
+            </Link>
+            <Link
+              to="/ai-websites"
+              className="block text-sm font-medium text-muted-foreground hover:text-foreground"
+              onClick={() => setIsOpen(false)}
+            >
+              AI Websites
             </Link>
             <Link
               to="/crm"
