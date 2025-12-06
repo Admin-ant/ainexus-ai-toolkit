@@ -4,12 +4,13 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import FloatingActionButton from "@/components/FloatingActionButton";
-import { Brain, MessageSquare, Phone, CheckCircle2, ArrowRight, Sparkles, Calendar, GraduationCap, Bot, Repeat } from "lucide-react";
+import { Brain, MessageSquare, Phone, CheckCircle2, ArrowRight, Sparkles, Calendar, GraduationCap, Bot, Repeat, Globe, Zap } from "lucide-react";
 import { Helmet } from "react-helmet";
 import heroImage from "@/assets/hero-image.jpg";
 import crmImage from "@/assets/crm-dashboard.jpg";
 import telecomImage from "@/assets/telecom-system.jpg";
-import aiNexusImage from "@/assets/ai-nexus-platform.jpg";
+import aiPlatformImage from "@/assets/ai-platform-hero.jpg";
+import aiWebsitesImage from "@/assets/ai-websites-hero.jpg";
 
 const Index = () => {
   return (
@@ -75,41 +76,119 @@ const Index = () => {
               </p>
             </div>
             
-            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+              {/* AI Card */}
+              <Card className="border-2 hover:border-primary transition-all duration-300 hover:shadow-lg overflow-hidden">
+                <div className="relative h-40 overflow-hidden">
+                  <img 
+                    src={aiPlatformImage} 
+                    alt="AI Platform" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <CardHeader className="pb-2">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-2">
+                    <Brain className="w-5 h-5 text-primary" />
+                  </div>
+                  <CardTitle className="text-lg">AI Oplossingen</CardTitle>
+                  <CardDescription className="text-sm">
+                    Machine learning & automatisering
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2 mb-4">
+                    <li className="flex items-start">
+                      <CheckCircle2 className="w-4 h-4 text-primary mr-2 flex-shrink-0 mt-0.5" />
+                      <span className="text-xs">Voorspellende analyse</span>
+                    </li>
+                    <li className="flex items-start">
+                      <CheckCircle2 className="w-4 h-4 text-primary mr-2 flex-shrink-0 mt-0.5" />
+                      <span className="text-xs">Procesautomatisering</span>
+                    </li>
+                    <li className="flex items-start">
+                      <CheckCircle2 className="w-4 h-4 text-primary mr-2 flex-shrink-0 mt-0.5" />
+                      <span className="text-xs">AI-chatbots</span>
+                    </li>
+                  </ul>
+                  <Button asChild className="w-full bg-primary hover:bg-primary/90" size="sm">
+                    <Link to="/ai">Meer over AI</Link>
+                  </Button>
+                </CardContent>
+              </Card>
+
+              {/* AI Websites Card */}
+              <Card className="border-2 hover:border-primary transition-all duration-300 hover:shadow-lg overflow-hidden">
+                <div className="relative h-40 overflow-hidden">
+                  <img 
+                    src={aiWebsitesImage} 
+                    alt="AI Websites" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <CardHeader className="pb-2">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-2">
+                    <Globe className="w-5 h-5 text-primary" />
+                  </div>
+                  <CardTitle className="text-lg">AI Websites</CardTitle>
+                  <CardDescription className="text-sm">
+                    Slimme websites die zichzelf verbeteren
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2 mb-4">
+                    <li className="flex items-start">
+                      <CheckCircle2 className="w-4 h-4 text-primary mr-2 flex-shrink-0 mt-0.5" />
+                      <span className="text-xs">AI content generatie</span>
+                    </li>
+                    <li className="flex items-start">
+                      <CheckCircle2 className="w-4 h-4 text-primary mr-2 flex-shrink-0 mt-0.5" />
+                      <span className="text-xs">SEO optimalisatie</span>
+                    </li>
+                    <li className="flex items-start">
+                      <CheckCircle2 className="w-4 h-4 text-primary mr-2 flex-shrink-0 mt-0.5" />
+                      <span className="text-xs">Responsive design</span>
+                    </li>
+                  </ul>
+                  <Button asChild className="w-full bg-primary hover:bg-primary/90" size="sm">
+                    <Link to="/ai-websites">Meer over Websites</Link>
+                  </Button>
+                </CardContent>
+              </Card>
+
               {/* CRM Card */}
               <Card className="border-2 hover:border-primary transition-all duration-300 hover:shadow-lg overflow-hidden">
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-40 overflow-hidden">
                   <img 
                     src={crmImage} 
                     alt="AI CRM Software Dashboard" 
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <CardHeader>
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                    <MessageSquare className="w-6 h-6 text-primary" />
+                <CardHeader className="pb-2">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-2">
+                    <MessageSquare className="w-5 h-5 text-primary" />
                   </div>
-                  <CardTitle>AI CRM Software</CardTitle>
-                  <CardDescription>
-                    Slimme klantrelatiebeheer voor sales en support teams
+                  <CardTitle className="text-lg">AI CRM</CardTitle>
+                  <CardDescription className="text-sm">
+                    Slimme klantrelatiebeheer
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <ul className="space-y-3 mb-6">
+                  <ul className="space-y-2 mb-4">
                     <li className="flex items-start">
-                      <CheckCircle2 className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">AI-gestuurde leadkwalificatie</span>
+                      <CheckCircle2 className="w-4 h-4 text-primary mr-2 flex-shrink-0 mt-0.5" />
+                      <span className="text-xs">AI-leadkwalificatie</span>
                     </li>
                     <li className="flex items-start">
-                      <CheckCircle2 className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">Geautomatiseerde workflows</span>
+                      <CheckCircle2 className="w-4 h-4 text-primary mr-2 flex-shrink-0 mt-0.5" />
+                      <span className="text-xs">Geautomatiseerde workflows</span>
                     </li>
                     <li className="flex items-start">
-                      <CheckCircle2 className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">360° klantinzicht</span>
+                      <CheckCircle2 className="w-4 h-4 text-primary mr-2 flex-shrink-0 mt-0.5" />
+                      <span className="text-xs">360° klantinzicht</span>
                     </li>
                   </ul>
-                  <Button asChild className="w-full bg-primary hover:bg-primary/90">
+                  <Button asChild className="w-full bg-primary hover:bg-primary/90" size="sm">
                     <Link to="/crm">Meer over CRM</Link>
                   </Button>
                 </CardContent>
@@ -117,81 +196,39 @@ const Index = () => {
 
               {/* Telecom Card */}
               <Card className="border-2 hover:border-primary transition-all duration-300 hover:shadow-lg overflow-hidden">
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-40 overflow-hidden">
                   <img 
                     src={telecomImage} 
                     alt="AI Telecom Systeem" 
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <CardHeader>
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                    <Phone className="w-6 h-6 text-primary" />
+                <CardHeader className="pb-2">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-2">
+                    <Phone className="w-5 h-5 text-primary" />
                   </div>
-                  <CardTitle>AI Telecom</CardTitle>
-                  <CardDescription>
-                    Intelligente gespreksanalyse en telefonie-oplossingen
+                  <CardTitle className="text-lg">AI Telecom</CardTitle>
+                  <CardDescription className="text-sm">
+                    Intelligente gespreksanalyse
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <ul className="space-y-3 mb-6">
+                  <ul className="space-y-2 mb-4">
                     <li className="flex items-start">
-                      <CheckCircle2 className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">Real-time gespreksanalyse</span>
+                      <CheckCircle2 className="w-4 h-4 text-primary mr-2 flex-shrink-0 mt-0.5" />
+                      <span className="text-xs">Real-time analyse</span>
                     </li>
                     <li className="flex items-start">
-                      <CheckCircle2 className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">Slimme IVR-systemen</span>
+                      <CheckCircle2 className="w-4 h-4 text-primary mr-2 flex-shrink-0 mt-0.5" />
+                      <span className="text-xs">Slimme IVR-systemen</span>
                     </li>
                     <li className="flex items-start">
-                      <CheckCircle2 className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">Kwaliteitsmonitoring</span>
+                      <CheckCircle2 className="w-4 h-4 text-primary mr-2 flex-shrink-0 mt-0.5" />
+                      <span className="text-xs">Kwaliteitsmonitoring</span>
                     </li>
                   </ul>
-                  <Button asChild className="w-full bg-primary hover:bg-primary/90">
+                  <Button asChild className="w-full bg-primary hover:bg-primary/90" size="sm">
                     <Link to="/telecom">Meer over Telecom</Link>
-                  </Button>
-                </CardContent>
-              </Card>
-
-              {/* AI Nexus Card */}
-              <Card className="border-2 hover:border-primary transition-all duration-300 hover:shadow-lg overflow-hidden">
-                <div className="relative h-48 overflow-hidden">
-                  <img 
-                    src={aiNexusImage} 
-                    alt="AI Nexus Platform" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <CardHeader>
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                    <Brain className="w-6 h-6 text-primary" />
-                  </div>
-                  <CardTitle>AI Nexus Platform</CardTitle>
-                  <CardDescription>
-                    Complete AI-oplossing voor bedrijfsautomatisering
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3 mb-6">
-                    <li className="flex items-start">
-                      <CheckCircle2 className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">AI-chatbots & assistenten</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle2 className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">Procesautomatisering</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle2 className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">Voorspellende analyses</span>
-                    </li>
-                  </ul>
-                  <Button asChild variant="outline" className="w-full">
-                    <a href="https://ainexus.nl" target="_blank" rel="noopener noreferrer">
-                      Bezoek Ainexus.nl
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </a>
                   </Button>
                 </CardContent>
               </Card>
