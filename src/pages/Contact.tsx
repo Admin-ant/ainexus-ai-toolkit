@@ -110,10 +110,10 @@ const Contact = () => {
 
               {/* Contact Information */}
               <div className="space-y-8">
-                <Card>
+                <Card className="group hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300">
                   <CardContent className="pt-6">
                     <div className="flex items-start space-x-4">
-                      <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
                         <Mail className="w-6 h-6 text-primary" />
                       </div>
                       <div>
@@ -158,10 +158,10 @@ const Contact = () => {
                   </CardContent>
                 </Card>
 
-                <Card>
+                <Card className="group hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300">
                   <CardContent className="pt-6">
                     <div className="flex items-start space-x-4">
-                      <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
                         <Phone className="w-6 h-6 text-primary" />
                       </div>
                       <div>
@@ -175,10 +175,10 @@ const Contact = () => {
                   </CardContent>
                 </Card>
 
-                <Card>
+                <Card className="group hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300">
                   <CardContent className="pt-6">
                     <div className="flex items-start space-x-4">
-                      <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
                         <MapPin className="w-6 h-6 text-primary" />
                       </div>
                       <div>
