@@ -4,12 +4,25 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, Bot } from "lucide-react";
+import { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
   const { toast } = useToast();
+
+  useEffect(() => {
+    // Load Telnyx AI Agent Widget script
+    const script = document.createElement('script');
+    script.src = 'https://unpkg.com/@telnyx/ai-agent-widget';
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -109,6 +122,29 @@ const Contact = () => {
                         <p className="text-sm text-muted-foreground mt-1">
                           We reageren binnen 24 uur
                         </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-primary/20 bg-primary/5">
+                  <CardContent className="pt-6">
+                    <div className="flex items-start space-x-4">
+                      <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center flex-shrink-0">
+                        <Bot className="w-6 h-6 text-primary" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-semibold mb-1">AI Agent</h3>
+                        <p className="text-muted-foreground">
+                          Of neem contact op met onze AI Agent
+                        </p>
+                        <p className="text-sm text-primary font-medium mt-1">
+                          24/7 beschikbaar
+                        </p>
+                        <div className="mt-4">
+                          {/* @ts-ignore */}
+                          <telnyx-ai-agent agent-id="assistant-8333d517-5ddc-4b22-a42c-e0459967e2b9"></telnyx-ai-agent>
+                        </div>
                       </div>
                     </div>
                   </CardContent>
