@@ -5,12 +5,24 @@ import { Textarea } from "@/components/ui/textarea";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Mail, Phone, MapPin, Bot } from "lucide-react";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { Helmet } from "react-helmet";
 import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
   const { toast } = useToast();
+  const aiAgentRef = useRef<HTMLDivElement>(null);
+
+  const handleAiAgentClick = () => {
+    // Find and click the Telnyx widget button
+    const widget = aiAgentRef.current?.querySelector('telnyx-ai-agent');
+    if (widget) {
+      const button = widget.shadowRoot?.querySelector('button') || widget.querySelector('button');
+      if (button) {
+        button.click();
+      }
+    }
+  };
 
   useEffect(() => {
     // Load Telnyx AI Agent Widget script
@@ -127,8 +139,11 @@ const Contact = () => {
                   </CardContent>
                 </Card>
 
-                <Card className="border-primary/30 bg-gradient-to-br from-primary/10 to-primary/5 shadow-lg shadow-primary/10 hover:shadow-primary/20 transition-all duration-300">
-                  <CardContent className="pt-6">
+                <Card 
+                  className="border-primary/30 bg-gradient-to-br from-primary/10 to-primary/5 shadow-lg shadow-primary/10 hover:shadow-primary/20 transition-all duration-300 cursor-pointer"
+                  onClick={handleAiAgentClick}
+                >
+                  <CardContent className="pt-6" ref={aiAgentRef}>
                     <div className="flex items-start space-x-4">
                       <div className="relative w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center flex-shrink-0">
                         <div className="absolute inset-0 rounded-lg bg-primary/30 animate-ping opacity-75"></div>
