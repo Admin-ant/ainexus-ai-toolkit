@@ -4,7 +4,13 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { Mail, Phone, MapPin, Bot } from "lucide-react";
+import { Mail, Phone, MapPin, Bot, Info } from "lucide-react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { useEffect, useRef } from "react";
 import { Helmet } from "react-helmet";
 import { useToast } from "@/hooks/use-toast";
@@ -157,6 +163,22 @@ const Contact = () => {
                             <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
                             Online
                           </span>
+                          <TooltipProvider>
+                            <Tooltip>
+                              <TooltipTrigger asChild onClick={(e) => e.stopPropagation()}>
+                                <button className="text-muted-foreground hover:text-primary transition-colors">
+                                  <Info className="w-4 h-4" />
+                                </button>
+                              </TooltipTrigger>
+                              <TooltipContent side="top" className="max-w-xs">
+                                <p className="text-sm">
+                                  Klik op deze kaart om onze AI Agent te activeren. 
+                                  Stel direct je vragen via tekst of spraak en krijg 
+                                  24/7 antwoord op al je vragen over Ainexus Cloud.
+                                </p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
                         </div>
                         <p className="text-muted-foreground mt-1">
                           Of neem contact op met onze AI Agent
