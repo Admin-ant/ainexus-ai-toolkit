@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { useState } from "react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "./ui/dropdown-menu";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,18 +27,25 @@ const Navigation = () => {
             <Link to="/" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               Home
             </Link>
-            <Link to="/ai" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-              AI
-            </Link>
-            <Link to="/ai-websites" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-              AI Websites
-            </Link>
-            <Link to="/crm" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-              AI CRM
-            </Link>
-            <Link to="/telecom" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-              AI Telecom
-            </Link>
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+                Producten <ChevronDown className="h-4 w-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="bg-background border border-border shadow-lg z-50">
+                <DropdownMenuItem asChild>
+                  <Link to="/ai" className="cursor-pointer">AI Oplossingen</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/ai-websites" className="cursor-pointer">AI Websites</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/crm" className="cursor-pointer">AI CRM</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/telecom" className="cursor-pointer">AI Telecom</Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
             <Link to="/pricing" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               Prijzen
             </Link>
