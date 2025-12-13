@@ -127,15 +127,23 @@ const Contact = () => {
                   </CardContent>
                 </Card>
 
-                <Card className="border-primary/20 bg-primary/5">
+                <Card className="border-primary/30 bg-gradient-to-br from-primary/10 to-primary/5 shadow-lg shadow-primary/10 hover:shadow-primary/20 transition-all duration-300">
                   <CardContent className="pt-6">
                     <div className="flex items-start space-x-4">
-                      <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center flex-shrink-0">
-                        <Bot className="w-6 h-6 text-primary" />
+                      <div className="relative w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center flex-shrink-0">
+                        <div className="absolute inset-0 rounded-lg bg-primary/30 animate-ping opacity-75"></div>
+                        <div className="absolute inset-0 rounded-lg bg-primary/20 animate-pulse"></div>
+                        <Bot className="w-6 h-6 text-primary relative z-10" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="font-semibold mb-1">AI Agent</h3>
-                        <p className="text-muted-foreground">
+                        <div className="flex items-center gap-2">
+                          <h3 className="font-semibold">AI Agent</h3>
+                          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-500/20 text-green-600 text-xs font-medium">
+                            <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                            Online
+                          </span>
+                        </div>
+                        <p className="text-muted-foreground mt-1">
                           Of neem contact op met onze AI Agent
                         </p>
                         <p className="text-sm text-primary font-medium mt-1">
