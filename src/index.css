@@ -9,25 +9,25 @@ All colors MUST be HSL.
 @layer base {
   :root {
     --background: 0 0% 0%; /* zwart */
-    --foreground: 160 17% 7%; /* #0f1513 */
+    --foreground: 0 0% 98%; /* #fafafa - wit voor contrast */
 
-    --card: 0 0% 100%;
-    --card-foreground: 160 17% 7%;
+    --card: 160 8% 8%; /* donkergrijs kaarten */
+    --card-foreground: 0 0% 98%; /* witte tekst op kaarten */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 160 17% 7%;
+    --popover: 160 8% 10%;
+    --popover-foreground: 0 0% 98%;
 
     /* Ainexus Lime Green Branding */
     --primary: 72 90% 60%; /* #d0f53d */
     --primary-foreground: 160 17% 7%; /* #0f1513 */
     
-    --primary-light: 72 80% 90%; /* light lime */
+    --primary-light: 72 40% 20%; /* donkere lime voor accenten */
     
     --secondary: 163 10% 14%; /* #202725 */
     --secondary-foreground: 0 0% 98%; /* #fafafa */
 
-    --muted: 160 5% 94%;
-    --muted-foreground: 160 10% 40%;
+    --muted: 160 6% 12%;
+    --muted-foreground: 160 5% 65%;
 
     --accent: 72 86% 55%; /* #c7ee2b */
     --accent-foreground: 160 17% 7%; /* #0f1513 */
@@ -35,16 +35,16 @@ All colors MUST be HSL.
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 160 6% 88%;
-    --input: 160 6% 88%;
+    --border: 160 6% 20%;
+    --input: 160 6% 15%;
     --ring: 72 90% 60%;
 
     --radius: 0.75rem;
     
     /* Custom design tokens */
     --gradient-primary: linear-gradient(135deg, hsl(72 90% 60%), hsl(72 86% 55%));
-    --gradient-hero: linear-gradient(180deg, hsl(0 0% 100%), hsl(72 80% 96%));
-    --shadow-elegant: 0 10px 40px -10px hsl(72 90% 50% / 0.25);
+    --gradient-hero: linear-gradient(180deg, hsl(0 0% 0%), hsl(160 8% 6%));
+    --shadow-elegant: 0 10px 40px -10px hsl(72 90% 50% / 0.3);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
