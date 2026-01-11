@@ -128,22 +128,24 @@ const Contact = () => {
 
               {/* Contact Information */}
               <div className="space-y-8">
-                <Card className="group hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300">
-                  <CardContent className="pt-6">
-                    <div className="flex items-start space-x-4">
-                      <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
-                        <Mail className="w-6 h-6 text-primary" />
+                <a href="mailto:info@ainexuscloud.nl" className="block">
+                  <Card className="group hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 cursor-pointer">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start space-x-4">
+                        <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
+                          <Mail className="w-6 h-6 text-primary" />
+                        </div>
+                        <div>
+                          <h3 className="font-semibold mb-1">Email</h3>
+                          <p className="text-muted-foreground hover:text-primary transition-colors">info@ainexuscloud.nl</p>
+                          <p className="text-sm text-muted-foreground mt-1">
+                            We reageren binnen 24 uur
+                          </p>
+                        </div>
                       </div>
-                      <div>
-                        <h3 className="font-semibold mb-1">Email</h3>
-                        <p className="text-muted-foreground">info@ainexuscloud.nl</p>
-                        <p className="text-sm text-muted-foreground mt-1">
-                          We reageren binnen 24 uur
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                    </CardContent>
+                  </Card>
+                </a>
 
                 <Card 
                   className="border-primary/30 bg-gradient-to-br from-primary/10 to-primary/5 shadow-lg shadow-primary/10 hover:shadow-primary/20 transition-all duration-300 cursor-pointer"
@@ -195,22 +197,24 @@ const Contact = () => {
                   </CardContent>
                 </Card>
 
-                <Card className="group hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300">
-                  <CardContent className="pt-6">
-                    <div className="flex items-start space-x-4">
-                      <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
-                        <Phone className="w-6 h-6 text-primary" />
+                <a href="tel:+31201234567" className="block">
+                  <Card className="group hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 cursor-pointer">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start space-x-4">
+                        <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
+                          <Phone className="w-6 h-6 text-primary" />
+                        </div>
+                        <div>
+                          <h3 className="font-semibold mb-1">Telefoon</h3>
+                          <p className="text-muted-foreground hover:text-primary transition-colors">+31 (0)20 123 4567</p>
+                          <p className="text-sm text-muted-foreground mt-1">
+                            Ma-Vr: 09:00 - 17:00
+                          </p>
+                        </div>
                       </div>
-                      <div>
-                        <h3 className="font-semibold mb-1">Telefoon</h3>
-                        <p className="text-muted-foreground">+31 (0)20 123 4567</p>
-                        <p className="text-sm text-muted-foreground mt-1">
-                          Ma-Vr: 09:00 - 17:00
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                    </CardContent>
+                  </Card>
+                </a>
 
                 <Card className="group hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300">
                   <CardContent className="pt-6">
