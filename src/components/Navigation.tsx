@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
-import { Menu, X, ChevronDown, Phone, Users, Cloud, BarChart3, User, Building2, Building } from "lucide-react";
+import { Menu, X, ChevronDown, Phone, Users, Cloud, BarChart3, User, Building2, Building, FileText, HelpCircle, Briefcase, Handshake, UsersRound } from "lucide-react";
 import { useState } from "react";
 import Logo from "./Logo";
 import {
@@ -57,6 +57,39 @@ const audienceItems = [
   },
 ];
 
+const aboutItems = [
+  {
+    title: "Whitepapers",
+    description: "Diepgaande kennis en onderzoek",
+    icon: FileText,
+    href: "/whitepapers",
+  },
+  {
+    title: "FAQ",
+    description: "Veelgestelde vragen",
+    icon: HelpCircle,
+    href: "/faq",
+  },
+  {
+    title: "Vacatures",
+    description: "Werk bij AI Nexus",
+    icon: Briefcase,
+    href: "/vacatures",
+  },
+  {
+    title: "Partners",
+    description: "Onze samenwerkingspartners",
+    icon: Handshake,
+    href: "/partners",
+  },
+  {
+    title: "Team",
+    description: "Ons team en missie",
+    icon: UsersRound,
+    href: "/team",
+  },
+];
+
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -104,6 +137,30 @@ const Navigation = () => {
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-72 p-2 bg-background border border-border shadow-lg z-50">
                 {audienceItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    className="flex items-start gap-3 p-3 rounded-md hover:bg-accent transition-colors group"
+                  >
+                    <item.icon className="h-5 w-5 mt-0.5 text-primary" />
+                    <div className="flex flex-col">
+                      <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
+                        {item.title}
+                      </span>
+                      <span className="text-xs text-muted-foreground">
+                        {item.description}
+                      </span>
+                    </div>
+                  </Link>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+                Over ons <ChevronDown className="h-4 w-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-72 p-2 bg-background border border-border shadow-lg z-50">
+                {aboutItems.map((item) => (
                   <Link
                     key={item.href}
                     to={item.href}
