@@ -1,14 +1,40 @@
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Phone, Users, Cloud, BarChart3 } from "lucide-react";
 import { useState } from "react";
 import Logo from "./Logo";
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuItem,
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
+
+const productItems = [
+  {
+    title: "AI Telecom",
+    description: "Intelligente telecommunicatie oplossingen",
+    icon: Phone,
+    href: "/telecom",
+  },
+  {
+    title: "AI CRM",
+    description: "Klantrelatiebeheer met AI",
+    icon: Users,
+    href: "/crm",
+  },
+  {
+    title: "AI Cloud",
+    description: "Cloud infrastructuur en AI services",
+    icon: Cloud,
+    href: "/ai",
+  },
+  {
+    title: "AI Websites",
+    description: "Websites met AI-integratie",
+    icon: BarChart3,
+    href: "/ai-websites",
+  },
+];
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,19 +57,24 @@ const Navigation = () => {
               <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
                 Producten <ChevronDown className="h-4 w-4" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="bg-background border border-border shadow-lg z-50">
-                <DropdownMenuItem asChild>
-                  <Link to="/ai" className="cursor-pointer">AI Oplossingen</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link to="/ai-websites" className="cursor-pointer">AI Websites</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link to="/crm" className="cursor-pointer">AI CRM</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link to="/telecom" className="cursor-pointer">AI Telecom</Link>
-                </DropdownMenuItem>
+              <DropdownMenuContent className="w-72 p-2 bg-background border border-border shadow-lg z-50">
+                {productItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    className="flex items-start gap-3 p-3 rounded-md hover:bg-accent transition-colors group"
+                  >
+                    <item.icon className="h-5 w-5 mt-0.5 text-primary" />
+                    <div className="flex flex-col">
+                      <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
+                        {item.title}
+                      </span>
+                      <span className="text-xs text-muted-foreground">
+                        {item.description}
+                      </span>
+                    </div>
+                  </Link>
+                ))}
               </DropdownMenuContent>
             </DropdownMenu>
             <Link to="/pricing" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
