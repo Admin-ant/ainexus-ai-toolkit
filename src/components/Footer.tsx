@@ -62,6 +62,11 @@ const Footer = () => {
                   Demo Aanvragen
                 </Link>
               </li>
+              <li>
+                <Link to="/plan-afspraak" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  Plan een Afspraak
+                </Link>
+              </li>
             </ul>
           </div>
 
