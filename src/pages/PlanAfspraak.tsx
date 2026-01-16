@@ -19,22 +19,69 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { Phone, Mail, Bot, MapPin, User, Building2, CalendarIcon, Clock, Send, Info } from "lucide-react";
+import { Phone, Mail, Bot, MapPin, User, Building2, CalendarIcon, Clock, Send, Info, Loader2 } from "lucide-react";
 import { useState } from "react";
 import { format } from "date-fns";
 import { nl } from "date-fns/locale";
 import { cn } from "@/lib/utils";
+import { supabase } from "@/integrations/supabase/client";
 
 const PlanAfspraak = () => {
   const { toast } = useToast();
   const [date, setDate] = useState<Date>();
+  const [time, setTime] = useState<string>("");
+  const [subject, setSubject] = useState<string>("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  // Form fields
+  const [name, setName] = useState("");
+  const [companyName, setCompanyName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Afspraak aangevraagd!",
-      description: "We nemen binnen 24 uur contact met u op om de afspraak te bevestigen.",
-    });
+    setIsSubmitting(true);
+
+    try {
+      const { error } = await supabase.from("appointments").insert({
+        name: name.trim(),
+        company_name: companyName.trim() || null,
+        email: email.trim(),
+        phone: phone.trim() || null,
+        preferred_date: date ? format(date, "yyyy-MM-dd") : null,
+        preferred_time: time || null,
+        subject: subject || null,
+        message: message.trim() || null,
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: "Afspraak aangevraagd!",
+        description: "We nemen binnen 24 uur contact met u op om de afspraak te bevestigen.",
+      });
+
+      // Reset form
+      setName("");
+      setCompanyName("");
+      setEmail("");
+      setPhone("");
+      setDate(undefined);
+      setTime("");
+      setSubject("");
+      setMessage("");
+    } catch (error) {
+      console.error("Error submitting appointment:", error);
+      toast({
+        title: "Er ging iets mis",
+        description: "Probeer het later opnieuw of neem telefonisch contact met ons op.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const timeSlots = [
@@ -193,6 +240,8 @@ const PlanAfspraak = () => {
                           <Input 
                             placeholder="Uw volledige naam" 
                             className="bg-muted/50 border-border focus:border-primary"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
                             required
                           />
                         </div>
@@ -204,6 +253,8 @@ const PlanAfspraak = () => {
                           <Input 
                             placeholder="Uw bedrijfsnaam" 
                             className="bg-muted/50 border-border focus:border-primary"
+                            value={companyName}
+                            onChange={(e) => setCompanyName(e.target.value)}
                           />
                         </div>
                       </div>
@@ -219,6 +270,8 @@ const PlanAfspraak = () => {
                             type="email"
                             placeholder="uw@email.nl" 
                             className="bg-muted/50 border-border focus:border-primary"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                             required
                           />
                         </div>
@@ -231,6 +284,8 @@ const PlanAfspraak = () => {
                             type="tel"
                             placeholder="+31 6 12345678" 
                             className="bg-muted/50 border-border focus:border-primary"
+                            value={phone}
+                            onChange={(e) => setPhone(e.target.value)}
                           />
                         </div>
                       </div>
@@ -272,7 +327,7 @@ const PlanAfspraak = () => {
                             </div>
                             <div className="space-y-2">
                               <label className="text-sm text-muted-foreground">Tijd</label>
-                              <Select>
+                              <Select value={time} onValueChange={setTime}>
                                 <SelectTrigger className="bg-muted/50 border-border">
                                   <div className="flex items-center gap-2">
                                     <Clock className="w-4 h-4" />
@@ -280,9 +335,9 @@ const PlanAfspraak = () => {
                                   </div>
                                 </SelectTrigger>
                                 <SelectContent>
-                                  {timeSlots.map((time) => (
-                                    <SelectItem key={time} value={time}>
-                                      {time}
+                                  {timeSlots.map((t) => (
+                                    <SelectItem key={t} value={t}>
+                                      {t}
                                     </SelectItem>
                                   ))}
                                 </SelectContent>
@@ -295,7 +350,7 @@ const PlanAfspraak = () => {
                       {/* Subject */}
                       <div className="space-y-2">
                         <label className="text-sm font-medium">Onderwerp</label>
-                        <Select>
+                        <Select value={subject} onValueChange={setSubject}>
                           <SelectTrigger className="bg-muted/50 border-border">
                             <SelectValue placeholder="Waar kunnen we u mee helpen?" />
                           </SelectTrigger>
@@ -315,6 +370,8 @@ const PlanAfspraak = () => {
                         <Textarea 
                           placeholder="Vertel ons meer over uw situatie en wensen..."
                           className="bg-muted/50 border-border focus:border-primary min-h-[120px]"
+                          value={message}
+                          onChange={(e) => setMessage(e.target.value)}
                         />
                       </div>
 
@@ -323,9 +380,19 @@ const PlanAfspraak = () => {
                         type="submit" 
                         size="lg"
                         className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
+                        disabled={isSubmitting}
                       >
-                        <Send className="w-4 h-4 mr-2" />
-                        Afspraak aanvragen
+                        {isSubmitting ? (
+                          <>
+                            <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                            Verzenden...
+                          </>
+                        ) : (
+                          <>
+                            <Send className="w-4 h-4 mr-2" />
+                            Afspraak aanvragen
+                          </>
+                        )}
                       </Button>
 
                       <p className="text-center text-xs text-muted-foreground">
