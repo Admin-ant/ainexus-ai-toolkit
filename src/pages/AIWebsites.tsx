@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import FloatingActionButton from "@/components/FloatingActionButton";
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
@@ -59,7 +59,6 @@ const AIWebsites = () => {
       </Helmet>
 
       <Navigation />
-      <FloatingActionButton />
 
       {/* Hero Section */}
       <section className="relative pt-24 pb-16 overflow-hidden">

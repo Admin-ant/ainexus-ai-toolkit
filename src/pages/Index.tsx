@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import FloatingActionButton from "@/components/FloatingActionButton";
+
 import { Brain, MessageSquare, Phone, CheckCircle2, ArrowRight, Sparkles, Calendar, GraduationCap, Bot, Repeat, Globe, Zap } from "lucide-react";
 import { Helmet } from "react-helmet";
 import heroImage from "@/assets/hero-image.jpg";
@@ -425,8 +425,6 @@ const Index = () => {
             </Link>
           </Button>
         </div>
-
-        <FloatingActionButton />
 
         <Footer />
       </div>
